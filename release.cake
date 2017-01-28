@@ -55,7 +55,7 @@ Task("DownloadGitHubReleaseArtifacts")
     {
         EnsureDirectoryExists("./releaseArtifacts");
 
-        var assets_url = ParseJson(Get("https://api.github.com/repos/binarymash/responses/releases/tags/" + tag))
+        var assets_url = ParseJson(Get("https://api.github.com/repos/binarymash/pipelinetesting/releases/tags/" + tag))
             .GetValue("assets_url").Value<string>();
 
         foreach(var asset in DeserializeJson<JArray>(Get(assets_url)))
